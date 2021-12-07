@@ -1,0 +1,27 @@
+{
+  "name": "soket",
+  "version": "1.0.0",
+  "description": "first use of socket to allow different people to interact using the same app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulsumskoy/Agar.io-clone.git"
+  },
+  "keywords": [
+    "multiplayer"
+  ],
+  "author": "Pavel, Nikita, Alexandr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulsumskoy/Agar.io-clone/issues"
+  },
+  "homepage": "https://github.com/paulsumskoy/Agar.io-clone#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
