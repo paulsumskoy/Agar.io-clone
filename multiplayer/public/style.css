@@ -1,0 +1,73 @@
+canvas {
+    display: block;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+  }
+  
+  h1 {
+    color: silver;
+  }
+  
+  .formu {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+  }
+  
+  .formu h2,
+  h3 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+  .formu input[type="text"],
+  .formu input[type="selectSkin"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  
+  .formu input[type="text"]:focus,
+  .formu input[type="password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+  }
+  
+  .formu button {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  
+  .formu button:hover {
+    background: #2ecc71;
+  }
