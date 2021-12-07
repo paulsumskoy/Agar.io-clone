@@ -7,9 +7,9 @@ var cliBLobs = {};
 var biggest = [];
 var zoom = 1;
 var div;
-var playerName = localStorage["name"];
+var playerName = localStorage["playerName"];
 var skin = localStorage["skin"];
-var lastEaten = ""; //id последней съеденной капли, чтобы не посылать несколько сигналов, съеденных с одного и того же идентификатора
+var lastEaten = ""; // id последнего съеденного blob, чтобы не посылать несколько съеденных сигналов с одним и тем же id
 
 const MAPSIZE = 4;
 const BALLSIZE = 7;
@@ -40,7 +40,7 @@ function setup() {
     img:skin
   }
   socket.emit('start', data);
-  // если мы получим сигнал об отключении
+  //если мы получим сигнал об отключении
   socket.on('forceDisconnect', function(){
     console.log("deco");
     window.location="game_over.html";
@@ -51,6 +51,7 @@ function setup() {
     function (data) {
       clients = data;
       // console.log(data);
+      //добавил маленькие шары, чтобы поесть
       if(blobs.length<1000) {
       var x = random(-width*MAPSIZE, width*MAPSIZE);
     var y = random(-height*MAPSIZE, height*MAPSIZE);
@@ -69,7 +70,7 @@ function draw() {
   background(0);
   //мы перемещаем начало нашего холста, чтобы наша капля всегда была в центре
   translate(width / 2, height / 2);
-  //делаем эффект масштабирования более чистым
+  //сделать эффект масштабирования более чистым
   var newzoom = 64 / blob.r;
   zoom = lerp(zoom, newzoom, 0.1);
   //уменьшить масштаб по мере роста нашей капли
@@ -99,10 +100,24 @@ function draw() {
           lastEaten = id;
         }
       }
+      //sinon on le créé
       catch (error) {
         console.log(clients[i].img);
         cliBLobs[clients[i].id] = new Blob(clients[i].x, clients[i].y, clients[i].r,false,clients[i].name,clients[i].img);
       }
+
+      fill(200,30,0);
+      textAlign(CENTER);
+      textSize(clients[i].r/3);
+      text(clients[i].name, clients[i].x, clients[i].y + clients[i].r);
+
+    }
+    // clients[i].show();
+    // if (blob.eat(clients[i])) {
+    //   clients.splice(i, 1);
+    // }
+  }
+
 
   blob.show();
   if(mouseIsPressed){
@@ -123,7 +138,7 @@ function draw() {
   }
 }
 else {
-  div.html("No bigger players yet");
+  div.html("Pas encore de plus gros joueurs");
 }
 
     // обновляем позицию
@@ -140,13 +155,14 @@ else {
 function sort2(clients2){
   var tab = clients2;
   for(var i = 0; i < tab.length; i++){
-    //сохранить минимальный индекс элемента
+    //stocker l'index de l'élément minimum
     var min = i; 
     for(var j = i+1; j < tab.length; j++){
       if(tab[j].r < tab[min].r){
         // console.log(tab);
         // console.log(j);
         // console.log(tab[0].r);
+       //обновить минимальный индекс элемента
        min = j; 
       }
     }
@@ -157,6 +173,4 @@ function sort2(clients2){
   // console.log(tab[id]);
   //  console.log(tab[1].r);
   return tab;
-}
-}
-}
+}; //finish

@@ -1,7 +1,7 @@
-let input;
-let button;
-let playerName;
-let selectSkin;
+var input;
+var button;
+var playerName;
+var selectSkin;
 function setup() {
   createCanvas(480, 120);
   resetSetup();
@@ -32,9 +32,9 @@ function drawName() {
   playerName = input.value();
   for (var i=0; i < 30; i++) {
     fill(random(255));
-    text(playerName, random(width), random(height));
+    text(name, random(width), random(height));
   }
-  localStorage["name"] = playerName;
+  localStorage["playerName"] = playerName;
   localStorage["skin"] = selectSkin.value();
   window.location = "game/index.html";
 }
