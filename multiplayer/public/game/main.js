@@ -155,7 +155,6 @@ else {
 function sort2(clients2){
   var tab = clients2;
   for(var i = 0; i < tab.length; i++){
-    //stocker l'index de l'élément minimum
     var min = i; 
     for(var j = i+1; j < tab.length; j++){
       if(tab[j].r < tab[min].r){
