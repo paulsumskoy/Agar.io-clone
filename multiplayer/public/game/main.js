@@ -30,7 +30,7 @@ function setup() {
   socket = io();
   // blob = new Blob(random(width*MAPSIZE), random(height*MAPSIZE), random(8, 48), false, playerName, skin);
   
-  blob = new Blob(0, 0, random(8, 48), false, playerName, skin);
+  blob = new Blob(random(-width*MAPSIZE, width*MAPSIZE), random(-height*MAPSIZE, height*MAPSIZE), random(8, 48), false, playerName, skin);
   //данные для отправки на сервер
   var data = {
     x: blob.pos.x,
