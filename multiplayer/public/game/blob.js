@@ -10,7 +10,7 @@ function Blob(x, y, r, PerfectCircle = true,name ="nobody", skin) {
     var movingAbs =0, movingOrd =0, xoff = random(0,100), yoff = random(1000,10000);
     
     if(!PerfectCircle) {
-      var url = "img/"+skin+".png";
+      var url = "/img/"+skin+".png";
       img = loadImage(url,yes=> {console.log("The image loaded well!")},no=> {skin="None";} );
     }
     this.show = function () {
