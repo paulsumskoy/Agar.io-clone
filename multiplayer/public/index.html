@@ -14,20 +14,20 @@
     <span class = "form" id="Login_form" name="Login_form" action = "/" >
         <h2>Enter your name</h2>
       <input type="text" id="playerName" name="playerName" size="20" maxlength="60" placeholder="Name" >
-      <h3>Choose your skin</h3>
+      <!-- <h3>Choose your skin</h3>
       <select name="selectSkin" id="selectSkin" size="1">
         <option value="paul">Paul</option>
         <option value="nikita">Nikita</option>
         <option value="sasha">Sasha</option>
-    </select>
-    <button name="BtSub" onclick="Choose()">Choose</button>
+    </select> -->
+    <button name="BtSub" onclick="Choose()">PLAY</button>
   </span>
 
   <script>
       function Choose() {
   localStorage['playerName'] = document.getElementById('playerName').value;
-  var e =document.getElementById('selectSkin');
-  localStorage['skin'] =e.options[e.selectedIndex].value;
+//   var e =document.getElementById('selectSkin');
+//   localStorage['skin'] =e.options[e.selectedIndex].value;
   window.location = 'game/index.html';
       }
   </script>
