@@ -1,7 +1,7 @@
 // создаем веб-сервер
 var express = require('express');
 var app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000; //il récupère le port sois dans la variable d'environnement, sois prend 8000
 var server = app.listen(port);
 app.use(express.static('public'));
 console.log(`server started on PORT ${port}`);
@@ -81,7 +81,6 @@ function newConnection(socket) {
                 console.log("Disconnection from : "+clients[i].name + " "+id);
                 io.to(id).emit('forceDisconnect');
                 clients.splice(clients[id], 1);
-                once = false;
             }
         }
          once = true;
