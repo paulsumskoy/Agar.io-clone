@@ -129,7 +129,11 @@ function draw() {
   }
 }
 else {
+<<<<<<< HEAD
   div.html("Not enought players");
+=======
+  div.html("No yet big players");
+>>>>>>> ba2329e6ab280e0ec7e4a991a97e860c4b54ffc3
 }
 
     // обновляем позицию
