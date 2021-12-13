@@ -139,7 +139,7 @@ function draw() {
   }
 }
 else {
-  div.html("Pas encore de plus gros joueurs");
+  div.html("No yet big players");
 }
 
     // обновляем позицию
