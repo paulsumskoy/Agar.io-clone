@@ -33,7 +33,6 @@ function Blob(x, y, r, PerfectCircle = true,name ="nobody", skin) {
           var y = r * sin(i);
           vertex(x, y);
           xoff += 0.1;
-          //ellipse(x,y,4,4);
         }
         endShape();
         pop();

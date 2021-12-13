@@ -42,7 +42,6 @@ function Blob(x, y, r, PerfectCircle = true) {
       var d = p5.Vector.dist(this.pos, other.pos);
       //если расстояние между двумя каплями меньше, чем радиус одного + радиус другого
       if (d < this.r + other.r) {
-        //this.r += other.r/5;
         var sum = PI * this.r * this.r + PI * other.r * other.r;
         this.r = sqrt(sum / PI);
         return true;

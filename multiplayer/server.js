@@ -1,7 +1,7 @@
 // создаем веб-сервер
 var express = require('express');
 var app = express();
-const port = process.env.PORT || 8000; //il récupère le port sois dans la variable d'environnement, sois prend 8000
+const port = process.env.PORT || 8000;
 var server = app.listen(port);
 app.use(express.static('public'));
 console.log(`server started on PORT ${port}`);
@@ -74,7 +74,7 @@ function newConnection(socket) {
         }
         
     }
-    // обновляем позиции игроков
+    // поедание другого игрока
     function eatBlob(id) {
         for (var i = clients.length-1; i >=0; i--) {
             if (id == clients[i].id && once ==true) {

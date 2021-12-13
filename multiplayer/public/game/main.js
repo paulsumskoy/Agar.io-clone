@@ -90,7 +90,6 @@ function draw() {
     //для каждого клиента в массиве, кроме текущего клиента, который выполняет код (чтобы не раскрывать себя), мы можем проверить его значение в консоли Chrome, набрав socket.id
     if (id !== socket.id) {
       fill(0, 0, 255);
-      // ellipse(clients[i].x, clients[i].y, clients[i].r * 2, clients[i].r * 2);
       //мы пытаемся получить blob этого идентификатора для отображения
       try {
         var cliblob = cliBLobs[clients[i].id];
@@ -101,7 +100,6 @@ function draw() {
           lastEaten = id;
         }
       }
-      //sinon on le créé
       catch (error) {
         console.log(clients[i].img);
         cliBLobs[clients[i].id] = new Blob(clients[i].x, clients[i].y, clients[i].r,false,clients[i].name,clients[i].img);
@@ -113,10 +111,6 @@ function draw() {
       text(clients[i].name, clients[i].x, clients[i].y + clients[i].r);
 
     }
-    // clients[i].show();
-    // if (blob.eat(clients[i])) {
-    //   clients.splice(i, 1);
-    // }
   }
 
 
@@ -131,15 +125,11 @@ function draw() {
     div.html("Classement : <br/>");
     var min = clients.length>6 ? 6 : clients.length ;
   for  (var i=0; i<min; i++) {
-    // fill(255);
-    //   textAlign(LEFT);
-    //   textSize(biggest[i].r/3);
-    //   text(biggest[i].id, 10, i*50);
     div.html(i+1 + ") "+biggest[min-i-1].name + " <br/>",true);
   }
 }
 else {
-  div.html("Pas encore de plus gros joueurs");
+  div.html("Not enought players");
 }
 
     // обновляем позицию
@@ -156,13 +146,9 @@ else {
 function sort2(clients2){
   var tab = clients2;
   for(var i = 0; i < tab.length; i++){
-    //stocker l'index de l'élément minimum
     var min = i; 
     for(var j = i+1; j < tab.length; j++){
       if(tab[j].r < tab[min].r){
-        // console.log(tab);
-        // console.log(j);
-        // console.log(tab[0].r);
        //обновить минимальный индекс элемента
        min = j; 
       }
@@ -171,7 +157,5 @@ function sort2(clients2){
     tab[i] = tab[min];
     tab[min] = tmp;
   }
-  // console.log(tab[id]);
-  //  console.log(tab[1].r);
   return tab;
-}; //finish
+};
